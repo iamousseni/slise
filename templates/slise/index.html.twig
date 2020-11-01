@@ -1,0 +1,255 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+		<link rel="stylesheet" href="{{  asset('css/ui.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% block header %} {{ parent() }} {% endblock %}
+
+	<!-- Component 1 do conditions -->
+	<section class="components-box1 txt-center">
+		<h2 class="components-box1-pretitle">Chi siamo</h2>
+		<h1 class="components-box1-title box-center">A New Way Of Working For Many Of Professionals.</h1>
+		<p class="components-box1-text">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam risus mauris, sagittis 
+			ut efficitur id, suscipit in ipsum. Vivamus ornare convallis lorem. Donec ut justo ac turpis malesuada 
+			viverra non ac eros.
+		</p>
+	</section>
+
+	<section class="components-box2">
+		<div class="components-box2-image">
+			<img src="{{ asset('images/pexels-fauxels-3184325.jpg') }}" alt="Team slise">
+		</div>
+		<div class="components-box2-data">
+			<p class="components-box2-text">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam risus mauris, sagittis 
+				ut efficitur id, suscipit in ipsum. Vivamus ornare convallis lorem. Donec ut justo ac turpis malesuada 
+				viverra non ac eros.
+			</p>
+			<div class="components-box2-cta">
+				<button class="btn-cta">Conosciamoci</button>
+			</div>
+		</div>
+	</section>
+
+	<section class="components-box1 mt-10 mb-0">
+		<h2 class="components-box1-pretitle">Innovazione</h2>
+		<h1 class="components-box1-title">Ultimi lavori</h1>
+	</section>
+
+	<section class="components-box3 pt-0">
+		<div class="components-box3-cta">
+			<a href="">Hai bisogno di una consulenza? <i class="fas fa-long-arrow-alt-right"></i></a>
+		</div>
+		<div class="components-cards">
+
+			<div class="components-card">
+				<a href="">
+					<div class="components-card-image">
+						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
+					</div>
+					<div class="components-card-data">
+						<div>
+							<span>Brand identity</span>
+							<span>La boutiquè</span>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="components-card">
+				<a href="">
+					<div class="components-card-image">
+						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
+					</div>
+					<div class="components-card-data">
+						<div>
+							<span>Brand identity</span>
+							<span>La boutiquè</span>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="components-card">
+				<a href="">
+					<div class="components-card-image">
+						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
+					</div>
+					<div class="components-card-data">
+						<div>
+							<span>Brand identity</span>
+							<span>La boutiquè</span>
+						</div>
+					</div>
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- <section class="components-break">
+		<h1 class="title">Lorem ipsum dolor sit amet</h1>
+	</section> -->
+
+	<section class="components-box1">
+		<h2 class="components-box1-pretitle">Servizi</h2>
+		<h1 class="components-box1-title">Come innoviamo</h1>
+		<p class="components-box1-text">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>
+			 Etiam risus mauris, sagittis 
+			ut efficitur id, suscipit in ipsum. 
+		</p>
+	</section>
+
+	<section class="components-box3 pt-0">
+		<div class="components-box3-cta">
+			<a href="">Scopri tutti i nostri servizi <i class="fas fa-long-arrow-alt-right"></i></a>
+		</div>
+		<div class="components-cards">
+
+			<div class="components-card2">
+				<a href="">
+					<div class="components-card2-image">
+						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
+					</div>
+					<div class="components-card2-data">
+						<div>
+							<span>Brand identity</span>
+							<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="components-card2">
+				<a href="">
+					<div class="components-card2-image">
+						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
+					</div>
+					<div class="components-card2-data">
+						<div>
+							<span>Application development</span>
+							<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="components-card2">
+				<a href="">
+					<div class="components-card2-image">
+						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
+					</div>
+					<div class="components-card2-data">
+						<div>
+							<span>Brand identity</span>
+							<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+						</div>
+					</div>
+				</a>
+			</div>
+
+		</div>
+		
+	</section>
+
+	<section class="components-box4 mb-0 pb-3 w100 bc-sliseBlue">
+		<div>
+			<h3 class="components-box4-pretitle c-lightBlue">Gioca e vinci un regalo</h3>
+			<h1 class="components-box4-title">Scommettiamo che ti batto?</h1>
+		</div>
+	</section>
+
+	<section class="pb-3 bc-sliseBlue pb-3">
+		<div class = 'main-container'>
+			<div class = 'board'>
+					<!-- data-indx following cell divs represents cell index in 1D array representation -->
+					<div class='cell' data-indx = "0" ></div>
+					<div class='cell' data-indx = "1" ></div>
+					<div class='cell' data-indx = "2" ></div>
+					<div class='cell' data-indx = "3" ></div>
+					<div class='cell' data-indx = "4" ></div>
+					<div class='cell' data-indx = "5" ></div>
+					<div class='cell' data-indx = "6" ></div>
+					<div class='cell' data-indx = "7" ></div>
+					<div class='cell' data-indx = "8" ></div>
+			</div>
+
+			<div class = 'control'>
+					<!-- div.intial displays the starting controls -->
+					<div class = 'intial'>
+							<div class = 'difficulty'>
+									<span class = 'level selected' id = "blind">Facile</span>
+							</div>
+
+							<div class='start'> Inizia </div>
+					</div>
+
+					<!-- div.ingame displays in-game messages and controls -->
+					<div class = 'ingame' id="human">è il tuo turno</div>
+					<div class = 'ingame' id="ai">
+							<img src = "imgs/robot.png" id = "robot" class = "robot" />
+							<p>Tocca a me...</p>
+					</div>
+					<div class = 'ingame' id="won">Hai vinto</div>
+					<div class = 'ingame' id="lost">Hai perso</div>
+					<div class = 'ingame' id="draw">Pareggio</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="components-box1 txt-center mt-3">
+		<h2 class="components-box1-pretitle">Testimonianza</h2>
+		<h1 class="components-box1-title box-center">Cosa dicono di noi</h1>
+		<p class="components-box1-text">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam risus mauris, sagittis 
+			ut efficitur id, suscipit in ipsum. Vivamus ornare convallis lorem. Donec ut justo ac turpis malesuada 
+			viverra non ac eros.
+		</p>
+	</section>
+
+	<section class="components-box5 txt-center">
+		<div class="components-box5-image">
+			<img src="{{ asset('images/pexels-jackson-david-3147528.jpg') }}" alt="">
+		</div>
+		<div class="components-box5-data">
+			<p class="components-box5-text">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam risus mauris, sagittis 
+				ut efficitur id, suscipit in ipsum. Vivamus ornare convallis lorem. Donec ut justo ac turpis malesuada 
+				viverra non ac eros.
+			</p>
+		</div>
+		<div class="components-box5-person">
+			<span>Mario Rossi</span>
+			<span>CEO Facebook Italia</span>
+		</div>
+	</section>
+
+	
+	<section class="components-box6 txt-center">
+		<div class="components-box6-question">
+			<h1 class="pretitle">Hai qualche domanda?</h1>
+			<h2 class="title">Lasciaci una mail per una consulenza gratuita</h2>
+		</div>
+		<div class="components-box6-module">
+			<form action="">
+				<div>
+					<input type="email" name="email" placeholder="Inserisci la tua email" required>
+					<input type="submit" value="Invia">
+				</div>
+			</form>
+		</div>
+	</section>
+
+	{% block footer %} {{ parent() }} {% endblock %}
+	{% block javascripts %}
+			{{ parent() }}
+			<script src="{{ asset("js/ai.js") }}"></script>
+			<script src="{{ asset("js/control.js") }}"></script>
+			<script src="{{ asset("js/game.js") }}"></script>
+			<script src="{{ asset("js/ui.js") }}"></script>
+	{% endblock %}
+{% endblock %}

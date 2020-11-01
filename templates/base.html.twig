@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block googleAnalytics %}
+        {% endblock %}
+        {% block meta %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <meta name="description" content="{{ meta.description }}">
+            <meta property="og:image" content="{{ meta.socialImage }}">
+            <meta property="og:locale" content="it_IT">
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="{{ meta.title }}">
+            <meta property="og:description" content="{{ meta.description }}">
+            <meta property="og:url" content=" {{ meta.url }}">
+            <meta property="og:site_name" content="{{ meta.title }}">
+            <meta property="twitter:title" content="{{meta.title}}">
+            <meta property="twitter:description" content="{{ meta.description }}">
+            <meta property="twitter:image" content="{{ meta.socialImage }}">
+            <meta property="twitter:card" content="summary">
+            <meta name="twitter:site" content="{{ meta.title }}">
+            <meta name="twitter:description" content="{{ meta.description }}">
+            <meta name="twitter:title" content="{{ meta.title }}">
+            <meta name="twitter:image" content="{{ meta.socialImage }}">
+            <meta name="twitter:card" content="summary">
+            <meta name="keywords" content="{{ meta.keywords }}">
+            <meta name="robots" content="index,follow">
+        {% endblock %}
+        <title>{% block title %} {{ meta.title }} {% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="shortcut icon" href="{{  asset('images/slise.png') }}">
+            <link rel="stylesheet" href="{{  asset('css/styles.css') }}">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            {% block header %}
+            <header class="header" style="background-image: url('../images/wave.svg'), 
+            linear-gradient(170deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%), 
+            url('{{ menu.backgroundImage }}');">
+                <nav class="components-menu">
+                        <ul>
+                                <li class="logo">
+                                    <a href="/">
+                                        <img src="{{ menu.logo.image }}" alt="{{ menu.logo.alt }}">
+                                    </a>
+                                </li>
+                                {% for item in menu.items %}
+                                <li>
+                                        <a href={{ item.link }}>{{ item.name }}</a>
+                                </li>
+                                {% endfor %}
+                        </ul>
+                        {% if menu.callToAction is defined and menu.callToAction is not empty %}
+                        <div>
+                                <a href="{{ menu.callToAction.link }}">
+                                        <button class="btn-cta">{{ menu.callToAction.name }}</button>
+                                </a>
+                        </div>
+                        {% endif %}
+                </nav>
+                {% if (menu.content is not empty ) %}
+                <div class="components-menu-content">
+                    <div>
+                        {% if menu.content.title is defined and menu.content.title is not empty %}
+                        <h1 class="title">{{ menu.content.title }}</h1>
+                        {% endif %}
+                        {% if menu.content.description is defined and menu.content.description is not empty %}
+                        <p class="description">
+                            {{ menu.content.description }}
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+                <div class="components-menu-scroll">
+                    <span class="scroll-title">Scroll down</span>
+                    <img src="{{ asset('images/Scroll-Down-icon-Home.gif') }}" alt="Scroll down" class="scroll-image">
+                </div>
+            </header>
+            {% endblock %}
+
+            {% block footer %}
+            <footer>
+                <div>
+                    <div>
+                        <img src="{{ asset('/images/slise_logo.png') }}" alt="{{ menu.logo.alt }}">
+                    </div>
+                    <ul>
+                        <li>
+                            <div>
+                                <span>Servizi</span>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li>Brand Identity</li>
+                                    <li>Brand Identity</li>
+                                    <li>Brand Identity</li>
+                                </ul>
+                            </div>
+                        </li>
+        
+                        <li>
+                            <div>
+                                <span>Contatti</span>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li>+39 388 56 755 21</li>
+                                    <li>hello@slise.com</li>
+                                </ul>
+                                <div class="social-box">
+                                    <div>
+                                        <i class="fab fa-facebook-f"></i>
+                                    </div>
+                                    <div>
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
+                                    <div>
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>Slise Studio</li>
+                        <li>PIVA: 1234567890987</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
+            </footer>
+            {% endblock %}
+        {% endblock %}
+        {% block javascripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://kit.fontawesome.com/bee94aa91a.js"></script>
+            <script src="{{ asset("js/slise.js") }}"></script>
+        {% endblock %}
+    </body>
+</html>
