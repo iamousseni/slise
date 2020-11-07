@@ -135,7 +135,11 @@
 .components-box4,
 .components-box5,
 .components-box6,
-.components-box7{
+.components-box7,
+.components-box9,
+.components-box10,
+.components-box11,
+.components-box12{
     padding: 3% 2%;
     width: 90%;
     margin: 0 auto;
@@ -589,6 +593,13 @@
     width: 100%;
     padding: 3% 2%;
     margin-bottom: 10%;
+    transform: translateZ(1px);
+    background-image: url("../images/wave.svg"), 
+    linear-gradient(170deg, rgb(0, 0, 0), rgba(0, 0, 0, 0)), 
+    url("../images/pexels-clam-lo-3793816.jpg");
+    background-size: 105%, 100%, cover;
+    background-position: center 102%, center center;
+    background-repeat: no-repeat, no-repeat;
 }
 
 .components-box8-title{
@@ -600,37 +611,228 @@
     text-align: center;
 }
 
-.components-box8-job{
-    margin-bottom: 2%;
+.components-box8 .components-box10-data-title{
+    color: #fff;
 }
 
-.components-box8-job > div:first-child{
+.components-box8 .components-box10-data-subtitle{
+    color: var(--slise-lightBlue);
+}
+
+.components-box8 .components-box10-data-description{
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+/** BOX 9 **/
+.components-box9{
+    text-align: center;
+}
+
+.components-box9-image{
+    width: 13%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+
+.components-box9-image > img{
+    width: 100%;
+    transition: all 1s;
+}
+
+.components-box9-image > img:hover{
+    transform: rotate(360deg);
+}
+
+.components-box9-data{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.components-box9-data-title{
+    font-size: 40px;
+    line-height: 45px;
+    font-weight: 700;
+    color: var(--slise-blue);
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+.components-box9-data-text{
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 4%;
+}
+
+/** BOX 10 **/
+
+.components-box10-services {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.components-box10-services > a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.components-box10-services > a{
+    width: calc((100% / 3) - 5%);
+    margin-bottom: 5%;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+}
+
+.components-box10-service-image{
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.components-box10-service-image > img{
+    width: 50%;
+}
+
+.components-box10-data-title{
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 3%;
+}
+
+.components-box10-data-subtitle{
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 600;
+    color: var(--slise-blue);
+    margin-bottom: 3%;
+}
+
+.components-box10-data-description{
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 4%;
+}
+
+/** BOX 11 **/
+.components-box11-title{
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 7%;
+    text-align: center;
+}
+
+.components-box11-data-infos{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-.components-box8-job-title{
-    font-size: 20px;
-    font-weight: 600;
-    color: #fff;
-    margin-right: 5%;
+.components-box11-data-infos > .components-box11-data-info{
+    width: calc(100% / 3);
 }
 
-.components-box8-job > div.hide{
+.components-box11-data-info:not(:last-child){
+    border-right: 1px solid var(--slise-lightBlue);
+}
+
+.components-box11-data-info-image{
+    margin-bottom: 5%;
+}
+
+.components-box11-data-info-image,
+.components-box11-data-info-text{
+    text-align: center;
+}
+
+.components-box11-data-info-image > img{
+    width: 15%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.components-box11-data-info-text > a{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 300;
+    color: var(--slise-blue);
+    text-decoration: none;
+}
+
+.components-box11-data-info-text > a:hover{
+    text-decoration: underline;
+}
+
+/** BOX 12 **/
+.components-box12-data-title{
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 700;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.components-box12-data-text{
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+.components-box12-form form > *{
+    display: block;
+    margin-bottom: 2%;
+    width: 100%;
+}
+
+.components-box12-form form input,
+.components-box12-form form textarea{
+    padding: 9px 15px;
+    font-size: 18px;
+    border: 1px solid rgb(184, 184, 184);
+}
+
+.components-box12-form form input[type=file]{
+    border: none;
     display: none;
 }
 
-.components-box8-job > div:first-child .btn-cta{
-    border: 2px solid var(--slise-lightBlue);
-    border-radius: 5px;
-    background-color: none;
-    transition: all .5s;
+.components-box12-form #file{
+    width: 20%;
+    border: 1px solid rgb(184, 184, 184);
+    padding: 9px 15px;
+    cursor: pointer;
 }
 
-.components-box8-job > div:first-child .btn-cta:hover{
-    background-color: var(--slise-lightBlue);
-    color: var(--slise-blue);
+.components-box12-form form button{
+    width: 20%;
+    font-size: 18px;
+    padding: 9px 15px;
+    background-color: transparent;
+    border: 1px solid var(--slise-blue);
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.components-box12-form form button:hover{
+    background-color: var(--slise-blue);
+    color: #fff;
 }
 
 footer{

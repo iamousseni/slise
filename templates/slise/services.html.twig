@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{% block header %} {{ parent() }}{% endblock %}
+
+{% if servicesHead is defined and servicesHead is not empty %}
+<section class="components-box9">
+    <div class="components-box9-image">
+        <img src="{{ servicesHead.image }}" alt="">
+    </div>
+    <div class="components-box9-data">
+        {% if servicesHead.title is defined and servicesHead.title is not empty %}
+        <h1 class="components-box9-data-title">{{ servicesHead.title }}</h1>
+        {% endif %}
+        {% if servicesHead.description is defined and servicesHead.description is not empty %}
+        <p class="components-box9-data-text"> {{ servicesHead.description }}</p>
+        {% endif %}
+        <div class="components-box9-data-cta">
+            <a href=""><button class="btn-cta">{{ servicesHead.cta }}</button></a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if services is defined and services is not empty %}
+<section class="components-box10">
+    <div class="components-box10-services">
+        {% for service in services %}
+        <a href="">
+            <div class="components-box10-service">
+                <div class="components-box10-service-image">
+                    <img src="{{ service.logo }}" alt="">
+                </div>
+                <div class="components-box10-data">
+                    <h1 class="components-box10-data-title">{{ service.title }}</h1>
+                    <h3 class="components-box10-data-subtitle">{{ service.subtitle }}</h3>
+                    <p class="components-box10-data-description">
+                        {{ service.description }}
+                    </p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section class="components-box6 txt-center">
+    <div class="components-box6-question">
+        <h1 class="pretitle">Hai qualche domanda?</h1>
+        <h2 class="title">Lasciaci una mail per una consulenza gratuita</h2>
+    </div>
+    <div class="components-box6-module">
+        <form action="">
+            <div>
+                <input type="email" name="email" placeholder="Inserisci la tua email" required>
+                <input type="submit" value="Invia">
+            </div>
+        </form>
+    </div>
+</section>
+
+
+{% block footer %} {{ parent() }} {% endblock %}
+
+{% endblock %}

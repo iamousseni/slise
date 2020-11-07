@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{% block header %} {{ parent() }}{% endblock %}
+
+<section class="components-box11">
+    <h1 class="components-box11-title">Informazioni utili</h1>
+    <div class="components-box11-data-infos">
+        <div class="components-box11-data-info">
+            <div class="components-box11-data-info-image">
+                <img src="{{ asset('icons/iconmonstr-email-2-240.png') }}" alt="">
+            </div>
+            <div class="components-box11-data-info-text">
+                <a href="mailto:hello@slise.studio.com">hello@slise.studio.com</a>
+            </div>
+        </div>
+        <div class="components-box11-data-info">
+            <div class="components-box11-data-info-image">
+                <img src="{{ asset('icons/iconmonstr-phone-1-240.png') }}" alt="">
+            </div>
+            <div class="components-box11-data-info-text">
+                <a href="tel:+393885675521">+393885675521</a>
+            </div>
+        </div>
+        <div class="components-box11-data-info">
+            <div class="components-box11-data-info-image">
+                <img src="{{ asset('icons/iconmonstr-map-8-240.png') }}" alt="">
+            </div>
+            <div class="components-box11-data-info-text">
+                <a href="">Via Giuseppe frua 17</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="components-box12">
+    <div class="components-box12-data">
+        <h1 class="components-box12-data-title">Come possiamo esserti d'aiuto?</h1>
+        <p class="components-box12-data-text">
+            Vuoi richiedere un preventivo? 
+            Hai Bisogno di Informazioni? Contattaci!
+        </p>
+    </div>
+    <div class="components-box12-form">
+        <form action="" method="post">
+            <input type="text" name="fullname" placeholder="Nome completo">
+            <input type="text" name="activityName" placeholder="Ragione sociale">
+            <input type="email" name="email" placeholder="Email">
+            <textarea name="comment" id="" cols="30" rows="10" placeholder="Come pensi che potremmo esserti d'aiuto"></textarea>
+           <!-- <label for="file-upload" id="file"><input type="file" name="file" accept="pdf" id="file-upload"> Aggiungi un file</label> -->
+            <button>Invia richiesta</button>
+        </form>
+    </div>
+</section>
+
+<section class="components-box8 bc-sliseLightBlue mb-0">
+    <div>
+        <h1 class="components-box8-title">Le posizioni aperte</h1>
+    </div>
+    <section class="components-box10">
+        <div class="components-box10-services">
+            <a href="">
+                <div class="components-box10-service">
+                    <div class="components-box10-service-image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="components-box10-data">
+                        <h1 class="components-box10-data-title">Senior Developer</h1>
+                        <h3 class="components-box10-data-subtitle">Lorem ipsum</h3>
+                        <p class="components-box10-data-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Etiam risus mauris, sagittis ut efficitur id, suscipit in ipsum. 
+                        </p>
+                        <button class="btn-cta">Candidati <i class="fas fa-long-arrow-alt-right"></i></button>
+                    </div>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="components-box10-service">
+                    <div class="components-box10-service-image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="components-box10-data">
+                        <h1 class="components-box10-data-title">Senior Developer</h1>
+                        <h3 class="components-box10-data-subtitle">Lorem ipsum</h3>
+                        <p class="components-box10-data-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Etiam risus mauris, sagittis ut efficitur id, suscipit in ipsum. 
+                        </p>
+                        <button class="btn-cta">Candidati <i class="fas fa-long-arrow-alt-right"></i></button>
+                    </div>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="components-box10-service">
+                    <div class="components-box10-service-image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="components-box10-data">
+                        <h1 class="components-box10-data-title">Senior Developer</h1>
+                        <h3 class="components-box10-data-subtitle">Lorem ipsum</h3>
+                        <p class="components-box10-data-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Etiam risus mauris, sagittis ut efficitur id, suscipit in ipsum. 
+                        </p>
+                        <button class="btn-cta">Candidati <i class="fas fa-long-arrow-alt-right"></i></button>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+</section>
+
+<section class="components-box6 txt-center">
+    <div class="components-box6-question">
+        <h1 class="pretitle">Hai qualche domanda?</h1>
+        <h2 class="title">Lasciaci una mail per una consulenza gratuita</h2>
+    </div>
+    <div class="components-box6-module">
+        <form action="">
+            <div>
+                <input type="email" name="email" placeholder="Inserisci la tua email" required>
+                <input type="submit" value="Invia">
+            </div>
+        </form>
+    </div>
+</section>
+
+{% block footer %} {{ parent() }} {% endblock %}
+
+{% endblock %}
