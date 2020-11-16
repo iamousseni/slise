@@ -5,17 +5,21 @@
 
 {% if servicesHead is defined and servicesHead is not empty %}
 <section class="components-box9">
-    <div class="components-box9-image">
-        <img src="{{ servicesHead.image }}" alt="">
+    <div class="components-box9-image" data-aos="fade-up" data-aos-duration="3000">
+        <div class="services-slise">
+            <img src="{{ asset('icons/Pittogramma 1 slise.svg') }}" alt="">
+            <img src="{{ asset('icons/Pittogramma 2 slise.svg') }}" alt="">
+            <h1 class="c-lightBlue">ervizi</h1>
+        </div>
     </div>
     <div class="components-box9-data">
         {% if servicesHead.title is defined and servicesHead.title is not empty %}
-        <h1 class="components-box9-data-title">{{ servicesHead.title }}</h1>
+        <h1 class="components-box9-data-title" data-aos="fade-up" data-aos-duration="3000">{{ servicesHead.title }}</h1>
         {% endif %}
         {% if servicesHead.description is defined and servicesHead.description is not empty %}
-        <p class="components-box9-data-text"> {{ servicesHead.description }}</p>
+        <p class="components-box9-data-text" data-aos="fade-up" data-aos-duration="3000"> {{ servicesHead.description }}</p>
         {% endif %}
-        <div class="components-box9-data-cta">
+        <div class="components-box9-data-cta" data-aos="fade-up" data-aos-duration="3000">
             <a href=""><button class="btn-cta">{{ servicesHead.cta }}</button></a>
         </div>
     </div>
@@ -45,21 +49,39 @@
 </section>
 {% endif %}
 
-<section class="components-box6 txt-center">
-    <div class="components-box6-question">
-        <h1 class="pretitle">Hai qualche domanda?</h1>
-        <h2 class="title">Lasciaci una mail per una consulenza gratuita</h2>
+<section class="components-box7 bc-sliseBlue w100">
+    <div class="components-box7-data">
+         <h2 class="components-box7-title c-lightBlue" data-aos="fade-up" data-aos-duration="3000">Ma non è finita qui...</h2>
+         <p class="components-box7-text c-white" data-aos="fade-up" data-aos-duration="3000">
+            Tra i vari servizi offline amiamo:<br/>
+            <span class="c-lightBlue">Make up:</span> il tuo trucco, unico come il tuo viso<br><br>
+            
+            <span class="c-lightBlue">Hairstyling:</span> conciati per le feste, ma anche per eventi di ogni tipo<br><br>
+            
+            <span class="c-lightBlue">Bodypainting:</span> avere a cuore un brand è importante; averlo sulla propria pelle è ancora meglio.<br><br>
+            
+            <span class="c-lightBlue">Fornitura di personale:</span> accoglienza, hostess, security, facchinaggio, comparse e molte altre figure.<br><br>
+            
+            <span class="c-lightBlue">Servizi speciali:</span> accompagnamento artisti, driver, autisti privati, addetti
+            anticendio.
+         </p>
     </div>
-    <div class="components-box6-module">
+ </section>
+
+ <section class="components-box6 txt-center mb-10">
+    <div class="components-box6-question">
+        <h1 class="pretitle" data-aos="fade-up" data-aos-duration="3000">Hai bisogno di una mano?</h1>
+        <h2 class="title c-lightBlue" data-aos="fade-up" data-aos-duration="3000"><span class="c-blue">Attrai</span> nuovi clienti: prenota una consulenza gratuita.</h2>
+    </div>
+    <div class="components-box6-module" data-aos="zoom-out-up" data-aos-duration="3000">
         <form action="">
             <div>
-                <input type="email" name="email" placeholder="Inserisci la tua email" required>
+                <input type="email" name="email" placeholder="Inserisci la tua migliore email" required>
                 <input type="submit" value="Invia">
             </div>
         </form>
     </div>
 </section>
-
 
 {% block footer %} {{ parent() }} {% endblock %}
 

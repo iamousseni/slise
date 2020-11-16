@@ -46,11 +46,11 @@ ui.switchViewTo = function(turn) {
     if(ui.intialControlsVisible) {
         //if the game is just starting
         ui.intialControlsVisible = false;
-
+        
         $('.intial').fadeOut({
             duration : "slow",
             done : function() {
-                _switch(turn);
+              //  _switch(turn);
             }
         });
     }
@@ -62,6 +62,18 @@ ui.switchViewTo = function(turn) {
                 _switch(turn);
             }
         });
+    }
+
+    //X won!
+    if(turn == 'won'){
+        $('.modal-match-result').removeClass('hide');
+        $('#won').show();
+    }else if(turn == 'lost'){
+        $('.modal-match-result').removeClass('hide');
+        $('#lost').show();
+    }else if(turn == 'draw'){
+        $('.modal-match-result').removeClass('hide');
+        $('#draw').show();
     }
 };
 

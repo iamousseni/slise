@@ -1,87 +1,92 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
 	{{ parent() }}
-		<link rel="stylesheet" href="{{  asset('css/ui.css') }}">
+		<link rel="stylesheet" href="{{  asset('css/uis.css') }}">
 {% endblock %}
 
 {% block body %}
 	{% block header %} {{ parent() }} {% endblock %}
+	<!-- <div class="menu-slise">
+		<div>
+			<img src="{{ asset('icons/Menu_Sito Slise.svg') }}" alt="">
+		</div>
+		<div>
+			<span>Menu</span>
+		</div>
+	</div> -->
 
 	<!-- Component 1 do conditions -->
 	<section class="components-box1 txt-center">
-		<h2 class="components-box1-pretitle">Chi siamo</h2>
-		<h1 class="components-box1-title box-center">A New Way Of Working For Many Of Professionals.</h1>
-		<p class="components-box1-text">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam risus mauris, sagittis 
-			ut efficitur id, suscipit in ipsum. Vivamus ornare convallis lorem. Donec ut justo ac turpis malesuada 
-			viverra non ac eros.
+		<h2 class="components-box1-pretitle" data-aos="fade-up" data-aos-duration="3000">Manifesto</h2>
+		<h1 class="components-box1-title box-center" data-aos="fade-up" data-aos-duration="3000">Fatti <strong class="c-blue">attrarre</strong> dalle nostre idee</h1>
+		<p class="components-box1-text" data-aos="fade-up" data-aos-duration="3000">
+			C’era una volta, in un paese lontano lontano, uno studio di comunicazione.
+Visto che tutte le migliori storie iniziano così, abbiamo pensato di prendere spunto dalla tradizione, la stessa che però abbiamo deciso di innovare e rivoluzionare.
 		</p>
 	</section>
 
 	<section class="components-box2">
-		<div class="components-box2-image">
+		<div class="components-box2-image" data-aos="fade-right" data-aos-duration="3000">
 			<img src="{{ asset('images/pexels-fauxels-3184325.jpg') }}" alt="Team slise">
 		</div>
 		<div class="components-box2-data">
-			<p class="components-box2-text">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam risus mauris, sagittis 
-				ut efficitur id, suscipit in ipsum. Vivamus ornare convallis lorem. Donec ut justo ac turpis malesuada 
-				viverra non ac eros.
+			<p class="components-box2-text" data-aos="fade-left" data-aos-duration="3000">
+				Ora che abbiamo la vostra attenzione e che siete <strong class="c-blue">calamitati</strong> allo schermo possiamo proseguire.
 			</p>
-			<div class="components-box2-cta">
-				<button class="btn-cta">Conosciamoci</button>
+			<div class="components-box2-cta" data-aos="fade-left" data-aos-duration="3000">
+				<a href="/chi-siamo"><button class="btn-cta">Conosciamoci</button></a>
 			</div>
 		</div>
 	</section>
 
 	<section class="components-box1 mt-10 mb-0">
-		<h2 class="components-box1-pretitle">Innovazione</h2>
-		<h1 class="components-box1-title">Ultimi lavori</h1>
+		<h2 class="components-box1-pretitle" data-aos="fade-up" data-aos-duration="3000">Innovazione</h2>
+		<h1 class="components-box1-title" data-aos="fade-up" data-aos-duration="3000">Lasciati <span class="c-blue">attrarre</span> dai nostri progetti</h1>
 	</section>
 
 	<section class="components-box3 pt-0">
-		<div class="components-box3-cta">
-			<a href="">Hai bisogno di una consulenza? <i class="fas fa-long-arrow-alt-right"></i></a>
+		<div class="components-box3-cta" data-aos="fade-left" data-aos-duration="3000">
+			<a href="">Raccontaci il tuo progetto <i class="fas fa-long-arrow-alt-right"></i></a>
 		</div>
 		<div class="components-cards">
 
-			<div class="components-card">
+			<div class="components-card" data-aos="zoom-out-up" data-aos-duration="3000">
 				<a href="">
 					<div class="components-card-image">
 						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
 					</div>
 					<div class="components-card-data">
 						<div>
-							<span>Brand identity</span>
-							<span>La boutiquè</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Sito Web</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Tenuta le Querce</span>
 						</div>
 					</div>
 				</a>
 			</div>
 
-			<div class="components-card">
+			<div class="components-card" data-aos="zoom-out-up" data-aos-duration="3000">
 				<a href="">
 					<div class="components-card-image">
 						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
 					</div>
 					<div class="components-card-data">
 						<div>
-							<span>Brand identity</span>
-							<span>La boutiquè</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Brand identity</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Slise Studio</span>
 						</div>
 					</div>
 				</a>
 			</div>
 
-			<div class="components-card">
+			<div class="components-card" data-aos="zoom-out-up" data-aos-duration="3000">
 				<a href="">
 					<div class="components-card-image">
 						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
 					</div>
 					<div class="components-card-data">
 						<div>
-							<span>Brand identity</span>
-							<span>La boutiquè</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Logo design</span>
+							<span data-aos="fade-up" data-aos-duration="3000">First</span>
 						</div>
 					</div>
 				</a>
@@ -95,58 +100,57 @@
 	</section> -->
 
 	<section class="components-box1">
-		<h2 class="components-box1-pretitle">Servizi</h2>
-		<h1 class="components-box1-title">Come innoviamo</h1>
-		<p class="components-box1-text">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>
-			 Etiam risus mauris, sagittis 
-			ut efficitur id, suscipit in ipsum. 
+		<h2 class="components-box1-pretitle" data-aos="fade-up" data-aos-duration="3000">Come innoviamo</h2>
+		<h1 class="components-box1-title" data-aos="fade-up" data-aos-duration="3000">Fatti <span class="c-blue">attrarre</span> dai nostri servizi</h1>
+		<p class="components-box1-text" data-aos="fade-up" data-aos-duration="3000">
+			La comunicazione passa per mille canali, noi siamo i condolieri <br/>
+			 che ti accompagneranno lungo il viaggio. 
 		</p>
 	</section>
 
 	<section class="components-box3 pt-0">
-		<div class="components-box3-cta">
-			<a href="">Scopri tutti i nostri servizi <i class="fas fa-long-arrow-alt-right"></i></a>
+		<div class="components-box3-cta" data-aos="fade-left" data-aos-duration="3000">
+			<a href="">Naviga tra i nostri servizi <i class="fas fa-long-arrow-alt-right"></i></a>
 		</div>
 		<div class="components-cards">
 
-			<div class="components-card2">
+			<div class="components-card2-1" data-aos="zoom-out-up" data-aos-duration="3000">
 				<a href="">
-					<div class="components-card2-image">
+					<div class="components-card2-1-image">
 						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
 					</div>
-					<div class="components-card2-data">
+					<div class="components-card2-1-data">
 						<div>
-							<span>Brand identity</span>
-							<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Programmazione e Web Design</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Perchè un sito web?</span><br/>
 						</div>
 					</div>
 				</a>
 			</div>
 
-			<div class="components-card2">
+			<div class="components-card2-1" data-aos="zoom-out-up" data-aos-duration="3000">
 				<a href="">
-					<div class="components-card2-image">
+					<div class="components-card2-1-image">
 						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
 					</div>
-					<div class="components-card2-data">
+					<div class="components-card2-1-data">
 						<div>
-							<span>Application development</span>
-							<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Social media marketing</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Socializziamo</span>
 						</div>
 					</div>
 				</a>
 			</div>
 
-			<div class="components-card2">
+			<div class="components-card2-1" data-aos="zoom-out-up" data-aos-duration="3000">
 				<a href="">
-					<div class="components-card2-image">
+					<div class="components-card2-1-image">
 						<img src="{{ asset('images/pexels-canva-studio-3277806.jpg') }}" alt="">
 					</div>
-					<div class="components-card2-data">
+					<div class="components-card2-1-data">
 						<div>
-							<span>Brand identity</span>
-							<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Lead Generation</span>
+							<span data-aos="fade-up" data-aos-duration="3000">Generiamo fatturato</span>
 						</div>
 					</div>
 				</a>
@@ -158,12 +162,29 @@
 
 	<section class="components-box4 mb-0 pb-3 w100 bc-sliseBlue">
 		<div>
-			<h3 class="components-box4-pretitle c-lightBlue">Gioca e vinci un regalo</h3>
-			<h1 class="components-box4-title">Scommettiamo che ti batto?</h1>
+			<h3 class="components-box4-pretitle c-lightBlue" data-aos="fade-up" data-aos-duration="3000">Gioca e vinci un regalo</h3>
+			<h1 class="components-box4-title" data-aos="fade-up" data-aos-duration="3000">Scommettiamo che ti batto?</h1>
 		</div>
 	</section>
 
-	<section class="pb-3 bc-sliseBlue pb-3">
+	<section class="pb-3 bc-sliseBlue pb-3 relative">
+		<div class="modal-match-result hide">
+			<div class = 'ingame' id="won">
+				<h1>Ouch, mi hai battuto!😱</h1>
+				<h2>Hai vinto una consulenza gratuita</h2>
+				<button class="btn-cta" data-scroll="present">Riscatta il tuo premio</button>
+			</div>
+			<div class = 'ingame' id="lost">
+				<h1>Eheheh lo dicevo che ti avrei battuto!😌</h1>
+				<h2>Dai ti dò un'altra possibilità</h2>
+				<button class="btn-cta regame">Prenditi la rivincita</button>
+			</div>
+			<div class = 'ingame' id="draw">
+				<h1>Oh è stata dura!🥵</h1>
+				<h2>Stavolta però ti batto.</h2>
+				<button class="btn-cta regame">Giochiamo ancora</button>
+			</div>
+		</div>
 		<div class = 'main-container'>
 			<div class = 'board'>
 					<!-- data-indx following cell divs represents cell index in 1D array representation -->
@@ -182,7 +203,9 @@
 					<!-- div.intial displays the starting controls -->
 					<div class = 'intial'>
 							<div class = 'difficulty'>
-									<span class = 'level selected' id = "blind">Facile</span>
+									<span class = 'level hide' id = "blind">Facile</span>
+									<span class = 'level selected hide' id = "novice">Difficile</span>
+									<span class = 'level hide' id = "master">Difficile</span>
 							</div>
 
 							<div class='start'> Inizia </div>
@@ -191,27 +214,21 @@
 					<!-- div.ingame displays in-game messages and controls -->
 					<div class = 'ingame' id="human">è il tuo turno</div>
 					<div class = 'ingame' id="ai">
-							<img src = "imgs/robot.png" id = "robot" class = "robot" />
 							<p>Tocca a me...</p>
 					</div>
-					<div class = 'ingame' id="won">Hai vinto</div>
-					<div class = 'ingame' id="lost">Hai perso</div>
-					<div class = 'ingame' id="draw">Pareggio</div>
 			</div>
 		</div>
 	</section>
 
 	<section class="components-box1 txt-center mt-3">
-		<h2 class="components-box1-pretitle">Testimonianza</h2>
-		<h1 class="components-box1-title box-center">Cosa dicono di noi</h1>
-		<p class="components-box1-text">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam risus mauris, sagittis 
-			ut efficitur id, suscipit in ipsum. Vivamus ornare convallis lorem. Donec ut justo ac turpis malesuada 
-			viverra non ac eros.
+		<h2 class="components-box1-pretitle" data-aos="fade-up" data-aos-duration="3000">Testimonianza</h2>
+		<h1 class="components-box1-title box-center" data-aos="fade-up" data-aos-duration="3000">Cosa dicono di noi</h1>
+		<p class="components-box1-text" data-aos="fade-up" data-aos-duration="3000">
+			Parlare bene dei propri progetto è bello. <br/> Quando a farlo sono gli altri, lo è ancora di più
 		</p>
 	</section>
 
-	<section class="components-box5 txt-center">
+	<section class="components-box5 txt-center" data-aos="zoom-out-up" data-aos-duration="3000">
 		<div class="components-box5-image">
 			<img src="{{ asset('images/pexels-jackson-david-3147528.jpg') }}" alt="">
 		</div>
@@ -223,21 +240,21 @@
 			</p>
 		</div>
 		<div class="components-box5-person">
-			<span>Mario Rossi</span>
-			<span>CEO Facebook Italia</span>
+			<span>Massimiliano Caruso</span>
+			<span>Founder di First Security</span>
 		</div>
 	</section>
 
 	
-	<section class="components-box6 txt-center">
+	<section class="components-box6 txt-center mb-10" id="present">
 		<div class="components-box6-question">
-			<h1 class="pretitle">Hai qualche domanda?</h1>
-			<h2 class="title">Lasciaci una mail per una consulenza gratuita</h2>
+			<h1 class="pretitle" data-aos="fade-up" data-aos-duration="3000">Hai bisogno di una mano?</h1>
+			<h2 class="title c-lightBlue" data-aos="fade-up" data-aos-duration="3000"><span class="c-blue">Attrai</span> nuovi clienti: prenota una consulenza gratuita.</h2>
 		</div>
-		<div class="components-box6-module">
+		<div class="components-box6-module" data-aos="zoom-out-up" data-aos-duration="3000">
 			<form action="">
 				<div>
-					<input type="email" name="email" placeholder="Inserisci la tua email" required>
+					<input type="email" name="email" placeholder="Inserisci la tua migliore email" required>
 					<input type="submit" value="Invia">
 				</div>
 			</form>

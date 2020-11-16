@@ -31,14 +31,36 @@
         {% block stylesheets %}
             <link rel="shortcut icon" href="{{  asset('images/slise.png') }}">
             <link rel="stylesheet" href="{{  asset('css/styles.css') }}">
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         {% endblock %}
     </head>
     <body>
         {% block body %}
             {% block header %}
-            <header class="header" style="background-image: url('../images/wave.svg'), 
+            <header class="header" style="background-image: 
             linear-gradient(170deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%), 
             url('{{ menu.backgroundImage }}');">
+                <nav class="mob-menu">
+                    <div>
+                        <a href="/">
+                            <img src="{{ menu.logo.image }}" alt="{{ menu.logo.alt }}">
+                        </a>
+                    </div>
+                    <div>
+                        <button class="menu">
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="hide">
+                        <ul>
+                            {% for item in menu.items %}
+                                <li>
+                                        <a href={{ item.link }}>{{ item.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </nav>
                 <nav class="components-menu">
                         <ul>
                                 <li class="logo">
@@ -64,10 +86,10 @@
                 <div class="components-menu-content">
                     <div>
                         {% if menu.content.title is defined and menu.content.title is not empty %}
-                        <h1 class="title">{{ menu.content.title }}</h1>
+                        <h1 class="title" data-aos="fade-up" data-aos-duration="3000">{{ menu.content.title }}</h1>
                         {% endif %}
                         {% if menu.content.description is defined and menu.content.description is not empty %}
-                        <p class="description">
+                        <p class="description" data-aos="fade-up" data-aos-duration="3000">
                             {{ menu.content.description }}
                         </p>
                         {% endif %}
@@ -75,14 +97,24 @@
                 </div>
                 {% endif %}
                 <div class="components-menu-scroll">
-                    <span class="scroll-title">Scroll down</span>
+                    <span class="scroll-title">Scrolla giù</span>
                     <img src="{{ asset('images/Scroll-Down-icon-Home.gif') }}" alt="Scroll down" class="scroll-image">
                 </div>
+                <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="waves-header"><defs></defs><path id="feel-the-wave2" d=""/></svg>
             </header>
+            <div class="call-slise">
+                <div class="call-text">
+                    <p>Ciao, vuoi essere richiamato <strong>gratuitamente?</strong></p>
+                    <a href="tel:3299413596"><button class="btn-cta">Si</button></a>
+                </div>
+                <div class="call-icon">
+                    <img src="{{ asset('icons/Icona Telefono slise.svg') }}" alt="">
+                </div>
+            </div>
             {% endblock %}
-
             {% block footer %}
             <footer>
+                <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="waves-footer"><defs></defs><path id="feel-the-wave" d=""/></svg>
                 <div>
                     <div>
                         <img src="{{ asset('/images/slise_logo.png') }}" alt="{{ menu.logo.alt }}">
@@ -94,9 +126,9 @@
                             </div>
                             <div>
                                 <ul>
-                                    <li>Brand Identity</li>
-                                    <li>Brand Identity</li>
-                                    <li>Brand Identity</li>
+                                    <a href="{{ path('services') }}"><li>Programmazione e Web Design</li></a>
+                                    <a href="{{ path('services') }}"><li>Social media marketing</li></a>
+                                    <a href="{{ path('services') }}"><li>Lead Generation</li></a>
                                 </ul>
                             </div>
                         </li>
@@ -107,8 +139,8 @@
                             </div>
                             <div>
                                 <ul>
-                                    <li>+39 388 56 755 21</li>
-                                    <li>hello@slise.com</li>
+                                    <a href="tel:3299413596"><li>+39 329 941 35 96</li></a>
+                                    <a href="mailto:info@slise.studio"><li>info@slise.studio</li></a>
                                 </ul>
                                 <div class="social-box">
                                     <div>
@@ -128,17 +160,61 @@
                 <div>
                     <ul>
                         <li>Slise Studio</li>
-                        <li>PIVA: 1234567890987</li>
+                        <li>PIVA: IT11271280965</li>
                         <li>Privacy Policy</li>
                     </ul>
                 </div>
             </footer>
+            <div class="overlay hide">
+                <div>
+                    <img src="{{ asset('images/load.gif') }}" alt="">
+                </div>
+            </div>
             {% endblock %}
         {% endblock %}
         {% block javascripts %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://kit.fontawesome.com/bee94aa91a.js"></script>
             <script src="{{ asset("js/slise.js") }}"></script>
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                AOS.init();
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="https://rawgit.com/peacepostman/wavify/master/wavify.js"></script>
+            <script src="https://rawgit.com/peacepostman/wavify/master/jquery.wavify.js"></script>
+            <script id="rendered-js">
+                var wave1 = $('#feel-the-wave').wavify({
+                height: 200,
+                bones: 4,
+                amplitude: 50,
+                //color: '#1D4C9A',
+                color: 'red',
+                speed: .15 });
+
+                var wave1 = $('#feel-the-wave2').wavify({
+                height: 600,
+                bones: 2,
+                amplitude: 100,
+                //color: '#fff',
+                color: '#fff',
+                speed: .19 });
+
+                var colors = ['rgba(255, 281, 75, .8)', '#dc75ff', '#9d9ade', '#6cd7ee', '#aceeae'];
+
+                $("[data-color]").on('click', function () {
+                wave1.updateColor({
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    timing: 5 });
+
+                wave2.updateColor({
+                color: colors[Math.floor(Math.random() * colors.length)],
+                timing: 5 });
+
+                return false;
+                });
+            </script>
         {% endblock %}
     </body>
 </html>

@@ -37,6 +37,20 @@ $(".start").click(function() {
     }
 });
 
+$(".regame").click(function() {
+    globals = {};
+    $('.occupied').removeClass('occupied');
+    $('.cell').css({});
+    $('.cell').text('');
+    $('.ingame').hide();
+    $('.modal-match-result').addClass('hide');
+    $(".start").click();
+});
+
+$('[data-scroll]').click(function(){
+    $("html, body").animate({ scrollTop: $('#'+$(this).attr('data-scroll')).offset().top }, 500);
+});
+
 /*
  * click on cell (onclick div.cell) behavior and control
  * if an empty cell is clicked when the game is running and its the human player's trun

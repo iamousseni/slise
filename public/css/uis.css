@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap');
+
+:root{
+    --slise-blue: #1D4C9A;
+    --slise-lightBlue: #8DBBE5;
+}
+
+*{
+    font-family: 'Comfortaa', cursive;
+}
+
+.main-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.board {
+    height: 420px;
+    width: 420px;
+    margin: 0 auto;
+}
+
+.cell {
+    width: 140px;
+    height: 140px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    cursor:pointer;
+    float:left;
+    line-height: 140px;
+    text-align: center;
+    font-weight: 200;
+    font-size: 70px;
+    border: 2px solid var(--slise-lightBlue);
+}
+
+.cell:nth-child(3n+1){
+    border-left: none;
+    border-top: none;
+}
+
+.cell:nth-child(3n+2){
+    border-top: none;
+}
+
+.cell:nth-child(3n+3){
+    border-right: none;
+    border-top: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9){
+    border-bottom: none;
+}
+
+.control {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: -60px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.level {
+    margin: 0 15px;
+    color: lightskyblue;
+    cursor: pointer;
+}
+
+.level.hide{
+    display: none;
+}
+
+.not-selected {
+    opacity: 0.5;
+}
+
+.not-selected:hover {
+    opacity:1;
+}
+
+.start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    color: #ffffff;
+    background-color:  #8dbae5;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .5s;
+    animation: pulse-blue 2s infinite;
+}
+
+.start:hover {
+    opacity:1;
+}
+
+@keyframes pulse-blue {
+    0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+    }
+    
+    70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 30px rgba(52, 172, 224, 0);
+    }
+    
+    100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+    }
+}
+
+.ingame {
+    display:none;
+    color:lightskyblue;
+}
+
+.ingame > p {
+    margin:0px;
+}
+
+.robot {
+    opacity:0.5;
+}
+
+/* Media query width: 414px iPhone 6/7/8 Plus */
+
+@media only screen and (max-width: 414px) {
+    .cell{
+        width: 106px;
+        height: 106px;
+    }
+
+    .board{
+        height: 350px;
+        width: 319px;
+    }
+
+    .control{
+        top: 45%;
+        margin-left: -50px;
+        margin-top: -50px;
+    }
+
+    .start{
+        width: 100px;
+        height: 100px;
+    }
+
+}
