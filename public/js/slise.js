@@ -44,9 +44,11 @@ if(document.querySelector('.components-box2-image > img')){
     if (st > lastScrollTop && scrollY <= 50){
         // downscroll code
         scrollY++;
+        document.querySelector('.nav-scroll-up ').classList.remove('hide');
     } else if(st < lastScrollTop && scrollY > -50){
         // upscroll code
         scrollY--;
+        document.querySelector('.nav-scroll-up ').classList.add('hide');
     }
 
     document.querySelector('.components-box2-image > img').style.boxShadow = '-50px '+scrollY+'px 10px 0px rgba(141, 187, 230, .8)';
@@ -107,30 +109,34 @@ function isValid(check) {
     return checkValue != '' ? true : false;
 } 
 
-let menu = document.querySelector('.menu');
-menu.addEventListener('click', function() {
-  if (menu.classList.contains('open')) {
-    menu.classList.remove('open');
-    menu.classList.add('close');
+let menu = $('.menu');
+menu.click(function(){
+    if($(this).hasClass('open')){
+        menu.removeClass('open');
+        menu.addClass('close');
 
-    document.querySelector('.header').style.position = 'relative';
-    document.querySelector('.header').style.background = '';
-    document.querySelector('.header').style.zIndex = '1';
-    document.querySelector('.header').style.width = '100%';
-    document.querySelector('.menu-mob-list').classList.add('hide');
-    document.querySelector('.components-menu-content').classList.remove('hide');
-  } else {
-    menu.classList.remove('close');
-    menu.classList.add('open');
+        $('.header').css({
+            position: 'relative',
+            background: '',
+            zIndex: 1,
+            width: '100%'
+        });
+        $('.menu-mob-list').addClass('hide');
+        $('.components-menu-content').removeClass('hide');
+    }else{
+        menu.removeClass('close');
+        menu.addClass('open');
 
-    document.querySelector('.header').style.position = 'fixed';
-    document.querySelector('.header').style.background = 'rgb(94, 121, 166)';
-    document.querySelector('.header').style.zIndex = '3';
-    document.querySelector('.header').style.width = '100%';
-    document.querySelector('.menu-mob-list').classList.remove('hide');
-    document.querySelector('.components-menu-content').classList.add('hide');
-  }
-})
+        $('.header').css({
+            position: 'fixed',
+            background: 'rgb(94, 121, 166)',
+            zIndex: 5,
+            width: '100%'
+        });
+        $('.menu-mob-list').removeClass('hide');
+        $('.components-menu-content').addClass('hide');
+    }
+});
   
 
 //send contatti
