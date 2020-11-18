@@ -18,6 +18,7 @@ body{
 a{
     color: inherit;
     text-decoration: none;
+    z-index: 3;
 }
 
 .overlay{
@@ -151,7 +152,6 @@ button { all: unset; }
     width: 100%;
     height: 100vh;
     background-image: 
-    /*url("../images/wave.svg"), */
     linear-gradient(170deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%), 
     url("../images/bg.gif");
     background-size: 105%, 100%, cover;
@@ -246,12 +246,16 @@ button { all: unset; }
 }
 
 .components-menu-content{
-    width: 50%;
+    width: 80%;
     height: 83%;
     display: flex;
     align-items: center;
     color: #fff;
     z-index: 3;
+}
+
+.components-menu-content.hide{
+    display: none;
 }
 
 .components-menu-content .title{
@@ -306,35 +310,35 @@ button { all: unset; }
     text-align: right;
 }
 
-.mob-menu > div:nth-child(3){
-    position: fixed;
+.menu-mob-list{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: auto;
     left: 0;
 }
 
-.mob-menu > div:nth-child(3) > ul{
-    margin-top: 10%;
+.menu-mob-list ul{
+    margin-top: 20%;
     list-style: none;
     width: 100%;
     text-align: center;
+    color: #fff;
 }
 
-.mob-menu > div:nth-child(3) > ul > li{
+.menu-mob-list ul > li{
     font-size: 25px;
     line-height: 25px;
     margin-bottom: 5%;
     color: #fff;
 }
 
-.mob-menu > div:nth-child(3) > ul > li > a{
+.menu-mob-list ul > li > a{
     text-decoration: none;
 }
 
-.mob-menu > div.hide{
+.menu-mob-list.hide{
     display: none;
 }
 
@@ -369,6 +373,12 @@ button { all: unset; }
     margin: 0 auto;
     margin-bottom: 3%;
     z-index: 3;
+    overflow: hidden;
+}
+
+.components-box5{
+    overflow-x: visible;
+    overflow-y: visible;
 }
 
 .components-box1-pretitle{
@@ -650,6 +660,7 @@ button { all: unset; }
 .components-card2-title > span{
     display: block;
     font-size: 18px;
+    line-height: 23px;
     color: var(--slise-blue);
 }
 
@@ -659,6 +670,10 @@ button { all: unset; }
     line-height: 30px;
     margin-bottom: 5%;
     color: #333333;
+}
+
+.components-card2-text+div{
+    color: #fff;
 }
 
 /** BOX2-1 **/
@@ -821,7 +836,8 @@ button { all: unset; }
     z-index: 3;
 }
 
-.components-box6-module form input[type=submit]{
+.components-box6-module form input[type=submit],
+.components-box6-module form button{
     -webkit-appearance: none;
     width: 20%;
     padding: 12px 20px;
@@ -913,6 +929,10 @@ button { all: unset; }
 .components-box8 .components-box10-data-description{
     color: #e0e0e0;
     font-weight: 500;
+}
+
+.components-box10-data-description +a{
+    color: #fff;
 }
 
 /** BOX 9 **/
@@ -1133,6 +1153,10 @@ button { all: unset; }
 }
 
 /** BOX 12 **/
+.components-box12-data{
+    margin-bottom: 4%;
+}
+
 .components-box12-data-title{
     font-size: 50px;
     line-height: 50px;
@@ -1148,7 +1172,6 @@ button { all: unset; }
     line-height: 25px;
     font-weight: 400;
     color: #333333;
-    margin-bottom: 4%;
     text-align: center;
 }
 
@@ -1187,11 +1210,24 @@ button { all: unset; }
     transition: all .5s;
     cursor: pointer;
     border-radius: 30px;
+    text-align: center;
 }
 
 .components-box12-form form button:hover{
     background-color: var(--slise-blue);
     color: #fff;
+}
+
+.message{
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--slise-blue);
+    margin-top: 1%;
+}
+
+.message.error{
+    color: red;
 }
 
 /** MODAL **/
@@ -1420,6 +1456,7 @@ footer .social-box > div > i{
     }
 
     .waves-header{
+        display: none;
         height: 70%;
     }
 
@@ -1492,11 +1529,12 @@ footer .social-box > div > i{
     }
 
     .components-box2-image > img{
-        box-shadow: none;
+        box-shadow: none!important;
     }
 
     .components-box2-cta{
         text-align: center;
+        color: #fff;
     }
 
     .components-box5{
@@ -1521,7 +1559,7 @@ footer .social-box > div > i{
     }
 
     .components-box12-form form button{
-        width: 100%;
+        width: 90%;
     }
 
     .components-card2-1{
@@ -1568,7 +1606,7 @@ footer .social-box > div > i{
 
     .waves-footer{
         height: 72%;
-        top: -72%;
+        top: -70%;
     }
 
     .services-slise > img:first-child,
@@ -1577,9 +1615,10 @@ footer .social-box > div > i{
     }
 
     .services-slise > h1 {
-        font-size: 46px;
-        padding-bottom: 8%;
-        transform: translateX(-296%);
+        font-size: 33px;
+        padding-bottom: 12px;
+        transform: translateX(-100%);
+        margin-top: 0px;
     }
 
     .components-menu,
@@ -1598,7 +1637,7 @@ footer .social-box > div > i{
     }
 
     .components-box1.txt-center.mt-3{
-        margin-bottom: 30%;
+        margin-bottom: 35%;
     }
 
     .components-box5-image{
@@ -1651,13 +1690,18 @@ footer .social-box > div > i{
         width: 100%;
     }
 
-    .components-menu-content .title{
-        font-size: 50px;
-        line-height: 50px;
+    .components-box6-module form button{
+        width: 90%;
     }
 
-    #present{
-        margin-bottom: 25%!important;
+    .components-menu-content .title{
+        font-size: 45px;
+        line-height: 45px;
+    }
+
+    footer{
+        margin-top: 25%;
+        padding-top: 8%;
     }
 
     footer > div > div{
@@ -1689,6 +1733,12 @@ footer .social-box > div > i{
     footer > div:nth-child(3) > ul > li{
         margin-bottom: 0;
     }
+
+    .call-slise{
+        display: none;
+        width: 100%;
+        padding: 0 10%;
+    }
 }
 
 /* Media query width: 375px iPhoneX */
@@ -1696,6 +1746,13 @@ footer .social-box > div > i{
 @media only screen and (max-width: 375px) {
     .waves-header{
         height: 110%;
+    }
+
+    .services-slise > h1 {
+        font-size: 33px;
+        padding-bottom: 9px;
+        transform: translateX(-86%);
+        margin-top: 0px;
     }
 }
 

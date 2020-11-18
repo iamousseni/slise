@@ -51,16 +51,19 @@
                             <span></span>
                         </button>
                     </div>
-                    <div class="hide">
-                        <ul>
-                            {% for item in menu.items %}
-                                <li>
-                                        <a href={{ item.link }}>{{ item.name }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
                 </nav>
+                <div class="hide menu-mob-list">
+                    <ul>
+                        {% for item in menu.items %}
+                            <li>
+                                    <a href={{ item.link }}>{{ item.name }}</a>
+                            </li>
+                        {% endfor %}
+                        <li>
+                            <a href={{ menu.callToAction.link }}>{{ menu.callToAction.name }}</a>
+                        </li>
+                    </ul>
+                </div>
                 <nav class="components-menu">
                         <ul>
                                 <li class="logo">
@@ -184,36 +187,24 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
             <script src="https://rawgit.com/peacepostman/wavify/master/wavify.js"></script>
             <script src="https://rawgit.com/peacepostman/wavify/master/jquery.wavify.js"></script>
-            <script id="rendered-js">
-                var wave1 = $('#feel-the-wave').wavify({
-                height: 200,
-                bones: 4,
-                amplitude: 50,
-                //color: '#1D4C9A',
-                color: 'red',
-                speed: .15 });
+            <script>
+                if($('.waves-header').css('display') != 'none'){
+                    var wave1 = $('#feel-the-wave2').wavify({
+                    height: 600,
+                    bones: 2,
+                    amplitude: 100,
+                    color: '#fff',
+                    speed: .19 });
+                }
 
-                var wave1 = $('#feel-the-wave2').wavify({
-                height: 600,
-                bones: 2,
-                amplitude: 100,
-                //color: '#fff',
-                color: '#fff',
-                speed: .19 });
-
-                var colors = ['rgba(255, 281, 75, .8)', '#dc75ff', '#9d9ade', '#6cd7ee', '#aceeae'];
-
-                $("[data-color]").on('click', function () {
-                wave1.updateColor({
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    timing: 5 });
-
-                wave2.updateColor({
-                color: colors[Math.floor(Math.random() * colors.length)],
-                timing: 5 });
-
-                return false;
-                });
+                if($('.waves-footer').css('display') != 'none'){
+                    var wave1 = $('#feel-the-wave').wavify({
+                    height: 200,
+                    bones: 4,
+                    amplitude: 50,
+                    color: '#1D4C9A',
+                    speed: .15 });
+                }
             </script>
         {% endblock %}
     </body>

@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Asset\Package;
 use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
+use Symfony\Component\HttpFoundation\Request;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class SliseController extends AbstractController
 {
@@ -38,15 +40,9 @@ class SliseController extends AbstractController
             ]
         ];
 
-        $header = [
-            'title' => 'Slise studio',
-            'description' => 'Lorem Ipsum',
-        ];
-
         return $this->render('slise/index.html.twig', [
             'controller_name' => 'SliseController',
             'menu' => $menu,
-            'header' => $header,
             'meta' => $meta,
         ]);
     }
@@ -79,15 +75,9 @@ class SliseController extends AbstractController
             ]
         ];
 
-        $header = [
-            'title' => 'Slise studio',
-            'description' => 'Lorem Ipsum',
-        ];
-
         return $this->render('slise/about.html.twig', [
             'controller_name' => 'SliseController',
             'menu' => $menu,
-            'header' => $header,
             'meta' => $meta,
         ]);
     }
@@ -196,25 +186,11 @@ class SliseController extends AbstractController
             ],
         ];
 
-        $servicesHead = [
-            'image' => $package->getUrl('/images/pit_slise.png'),
-            'title' => 'Attraiamo le tue idee transformandole nel progetto che hai sempre sognato',
-            'description' => 'Slise nasce dalla volontà di offrire servizi di comunicazione a 360 gradi. Crediamo un sacco nel superpotere della comunicazione e quanto sia indispensabile dare ai vostri Brand, il supporto e l\'importanza che meritano.',
-            'cta' => 'Richiedi preventivo',
-        ];
-
-        $header = [
-            'title' => 'Slise studio',
-            'description' => 'Lorem Ipsum',
-        ];
-
         return $this->render('slise/services.html.twig', [
             'controller_name' => 'SliseController',
             'menu' => $menu,
-            'header' => $header,
             'meta' => $meta,
             'services' => $services,
-            'servicesHead' => $servicesHead,
         ]);
     }
 
@@ -242,20 +218,113 @@ class SliseController extends AbstractController
             ],
             'callToAction' => ['name' => 'Contattaci', 'link' => $this->generateUrl('contact')],
             'content' => [
-                'title' => 'Slise studio dove innovazione è casa'
+                'title' => 'Slise Studio: lasciati attrarre dalla comunicazione'
             ]
-        ];
-
-        $header = [
-            'title' => 'Come possiamo esserti d\'aiuto?',
-            'description' => 'Lorem Ipsum',
         ];
 
         return $this->render('slise/contact.html.twig', [
             'controller_name' => 'SliseController',
             'menu' => $menu,
-            'header' => $header,
             'meta' => $meta,
         ]);
+    }
+
+    /**
+     * @Route(
+     *      "/consulenza/send", 
+     *      name="send_consulenza_slise", 
+     *      methods={"POST"}
+     * )
+     */
+    public function sendConsulenza(Request $request){
+        $post = $request->request;
+        $from = 'info@slise.studio';
+        $data = [
+            'subject' => 'Richiesta di consulenza dal sito',
+            'from' => $from,
+            'fromName' => 'Slise studio',
+            'email' => $post->get('email'),
+            'to' => [
+                ['email' => 'info@slise.studio', 'name' => 'Slise studio']
+            ],
+        ];
+
+        if(!filter_var($post->get('email'), FILTER_VALIDATE_EMAIL))
+        return $this->json(['result' => false, 'message' => 'Si sono riscontrati degli errori durante l\'invio della email, controlla i dati inseriti e riprova']);
+
+        $body = $this->renderView('emails/consulenza.html.twig', $data);
+        $emailResponse = json_decode($this->sendEmail($data, $body));
+        
+        return $emailResponse->result
+        ? $this->json(['result' => true, 'message' => 'Abbiamo ricevuto con successo la sua richiesta, un nostro operatore la contatterà nel più breve tempo possibile.'])
+        : $this->json(['result' => false, 'message' => 'Si sono riscontrati degli errori durante l\'invio della email, la preghiamo di riprovare']);
+    }
+
+    /**
+     * @Route(
+     *      "/contatti/send", 
+     *      name="send_contact_slise", 
+     *      methods={"POST"}
+     * )
+     */
+    public function sendContatti(Request $request){
+        $post = $request->request;
+        $from = 'info@slise.studio';
+        $data = [
+            'fullname' => $post->get('fullname'),
+            'tel' => $post->get('tel'),
+            'subject' => 'Richiesta di informazioni dal sito',
+            'from' => $from,
+            'fromName' => 'Slise studio',
+            'to' => [
+                ['email' => 'info@slise.studio', 'name' => 'Slise studio']
+            ],
+            'email' => $post->get('email'),
+            'text' => $post->get('comment')
+        ];
+
+        if(empty($post->get('fullname')) || !filter_var($post->get('email'), FILTER_VALIDATE_EMAIL) || empty($post->get('comment')))
+        return $this->json(['result' => false, 'message' => 'Si sono riscontrati degli errori durante l\'invio della email, controlla i dati inseriti e riprova']);
+
+        $body = $this->renderView('emails/contact.html.twig', $data);
+        $emailResponse = json_decode($this->sendEmail($data, $body));
+        
+        return $emailResponse->result
+        ? $this->json(['result' => true, 'message' => 'Abbiamo ricevuto con successo la sua richiesta, un nostro operatore la contatterà nel più breve tempo possibile.'])
+        : $this->json(['result' => false, 'message' => 'Si sono riscontrati degli errori durante l\'invio della email, la preghiamo di riprovare']);
+    }
+
+    
+    public function sendEmail($data, $body){
+        $mail = new PHPMailer(true);
+        try {
+            //Server settings
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.ionos.it';                   
+            $mail->SMTPAuth   = true;                                   
+            $mail->Username   = 'admin@crazyone.agency';                     
+            $mail->Password   = 'Crst3321-';                               
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         
+            $mail->Port       = 587; 
+            $mail->CharSet = 'utf8';                           
+        
+            //Recipients
+            $mail->From = $data['from'];
+            $mail->FromName = $data['fromName'];
+            foreach($data['to'] as $to){
+                $mail->addAddress($to['email'], $to['name']);
+            }
+            
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = $data['subject'];
+            $mail->Body    = $body;
+        
+            return $mail->send()
+            ? json_encode(['result' => true, 'message' => 'Email inviato con successo'])
+            : json_encode(['result' => false, 'message' => 'Si sono riscontrati degli errori durante l\'invio della email']);
+        } catch (Exception $e) {
+            return json_encode(['result' => false, 'message' => 'Si sono riscontrati degli errori con la configurazione', 'error' => $mail->ErrorInfo]);
+        }
     }
 }

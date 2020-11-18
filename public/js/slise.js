@@ -38,19 +38,21 @@ document.querySelector('.components-box2-image').addEventListener('mousemove', e
 
 let lastScrollTop = 0;
 let scrollY = 50;
-window.addEventListener("scroll", function(){
-   var st = window.pageYOffset || document.documentElement.scrollTop;
-   if (st > lastScrollTop && scrollY <= 50){
-      // downscroll code
-      scrollY++;
-   } else if(st < lastScrollTop && scrollY > -50){
-      // upscroll code
-      scrollY--;
-   }
+if(document.querySelector('.components-box2-image > img')){
+    window.addEventListener("scroll", function(){
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > lastScrollTop && scrollY <= 50){
+        // downscroll code
+        scrollY++;
+    } else if(st < lastScrollTop && scrollY > -50){
+        // upscroll code
+        scrollY--;
+    }
 
-   document.querySelector('.components-box2-image > img').style.boxShadow = '-50px '+scrollY+'px 10px 0px rgba(141, 187, 230, .8)';
-   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-}, false);
+    document.querySelector('.components-box2-image > img').style.boxShadow = '-50px '+scrollY+'px 10px 0px rgba(141, 187, 230, .8)';
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    }, false);
+}
 
 
 document.querySelector('.call-icon').addEventListener('click', function(){
@@ -110,9 +112,93 @@ menu.addEventListener('click', function() {
   if (menu.classList.contains('open')) {
     menu.classList.remove('open');
     menu.classList.add('close');
+
+    document.querySelector('.header').style.position = 'relative';
+    document.querySelector('.header').style.background = '';
+    document.querySelector('.header').style.zIndex = '1';
+    document.querySelector('.header').style.width = '100%';
+    document.querySelector('.menu-mob-list').classList.add('hide');
+    document.querySelector('.components-menu-content').classList.remove('hide');
   } else {
     menu.classList.remove('close');
     menu.classList.add('open');
+
+    document.querySelector('.header').style.position = 'fixed';
+    document.querySelector('.header').style.background = 'rgb(94, 121, 166)';
+    document.querySelector('.header').style.zIndex = '3';
+    document.querySelector('.header').style.width = '100%';
+    document.querySelector('.menu-mob-list').classList.remove('hide');
+    document.querySelector('.components-menu-content').classList.add('hide');
   }
 })
   
+
+//send contatti
+if(document.querySelector('#btn-send-contact')){
+    document.querySelector('#btn-send-contact').addEventListener('click', function(){
+        let form = document.querySelector('[name=sendContact]');
+        data = {
+            fullname: form.fullname.value,
+            tel: form.tel.value,
+            email: form.email.value,
+            comment: form.comment.value
+        };
+        this.innerHTML = '<img src="/icons/unnamed.gif" alt="load slise" style="height:30px;object-fit:contain;">';
+
+        ajax('/contatti/send', 'POST', data)
+        .then( data => {
+        let message = document.querySelector('.message');
+        if(data.result){
+            form.parentElement.style.display = 'none';
+            message.classList.remove('error');
+        }else{
+            message.classList.add('error');
+        }
+        
+        this.innerHTML = 'Invia richiesta';
+        message.textContent = data.message;
+        });
+
+    });
+}
+
+//send consulenza
+if(document.querySelector('.btn-consulenza')){
+    document.querySelector('.btn-consulenza').addEventListener('click', function(){
+        let form = document.querySelector('[name=consulenza]');
+        data = {
+            email: form.email.value,
+        };
+
+        this.innerHTML = '<img src="/icons/unnamed.gif" alt="load slise" style="height:30px;object-fit:contain;">';
+        ajax('/consulenza/send', 'POST', data)
+        .then( data => {
+        let message = document.querySelector('.message.consulenza');
+        if(data.result){
+            form.style.display = 'none';
+            message.classList.remove('error');
+        }else{
+            message.classList.add('error');
+        }
+        
+        this.innerHTML = 'Invia richiesta';
+        message.textContent = data.message;
+        });
+    });
+}
+
+function ajax(url, method='GET', data=null){
+    return new Promise ((resolve, reject) => {
+      let xhttp = new XMLHttpRequest();
+      xhttp.open(method, url, true);
+      xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhttp.onreadystatechange = function(){
+        if(this.status == 200 && this.responseText != ''){
+          let responseData = JSON.parse(this.responseText); 
+          resolve(responseData);
+        }
+      };
+
+      xhttp.send(new URLSearchParams(data));
+    });
+}

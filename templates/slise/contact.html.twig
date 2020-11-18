@@ -40,19 +40,21 @@
             Vuoi richiedere un preventivo? 
             Hai Bisogno di Informazioni? Contattaci!
         </p>
+        <p class="message"></p>
     </div>
     <div class="components-box12-form">
-        <form action="" method="post">
-            <input type="text" name="fullname" placeholder="Nome completo">
-            <input type="text" name="activityName" placeholder="Ragione sociale">
-            <input type="email" name="email" placeholder="Email">
-            <textarea name="comment" id="" cols="30" rows="10" placeholder="Come pensi che potremmo esserti d'aiuto"></textarea>
-           <!-- <label for="file-upload" id="file"><input type="file" name="file" accept="pdf" id="file-upload"> Aggiungi un file</label> -->
-            <button>Invia richiesta</button>
+        <form action="" name="sendContact" method="post" onsubmit="return false;">
+            <input type="text" name="fullname" placeholder="Nome completo *" required>
+            <input type="tel" name="tel" placeholder="Numero di telefono">
+            <input type="email" name="email" placeholder="Email *" required>
+            <textarea name="comment" id="" cols="30" rows="10" placeholder="Come pensi che potremmo esserti d'aiuto *" required></textarea>
+            <small>* Campi obbligatori</small>
+            <button id="btn-send-contact">Invia richiesta</button>
         </form>
     </div>
 </section>
 
+<!--
 <section class="components-box8 bc-sliseLightBlue mb-0">
     <div>
         <h1 class="components-box8-title" data-aos="fade-up" data-aos-duration="3000">Le posizioni aperte</h1>
@@ -73,6 +75,7 @@
     </section>
 
 </section>
+-->
 
 <section class="components-box6 txt-center">
     <div class="components-box6-question">
@@ -80,10 +83,11 @@
         <h2 class="title" data-aos="fade-up" data-aos-duration="3000">Lasciaci una mail per una consulenza gratuita</h2>
     </div>
     <div class="components-box6-module" data-aos="zoom-out-up" data-aos-duration="3000">
-        <form action="">
+        <p class="message consulenza"></p>
+        <form action="" name="consulenza" method="post" onsubmit="return false;">
             <div>
                 <input type="email" name="email" placeholder="Inserisci la tua email" required>
-                <input type="submit" value="Invia">
+                <button class="btn-consulenza">Invia</button>
             </div>
         </form>
     </div>

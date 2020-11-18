@@ -3,7 +3,6 @@
 
 {% block header %} {{ parent() }}{% endblock %}
 
-{% if servicesHead is defined and servicesHead is not empty %}
 <section class="components-box9">
     <div class="components-box9-image" data-aos="fade-up" data-aos-duration="3000">
         <div class="services-slise">
@@ -13,18 +12,13 @@
         </div>
     </div>
     <div class="components-box9-data">
-        {% if servicesHead.title is defined and servicesHead.title is not empty %}
-        <h1 class="components-box9-data-title" data-aos="fade-up" data-aos-duration="3000">{{ servicesHead.title }}</h1>
-        {% endif %}
-        {% if servicesHead.description is defined and servicesHead.description is not empty %}
-        <p class="components-box9-data-text" data-aos="fade-up" data-aos-duration="3000"> {{ servicesHead.description }}</p>
-        {% endif %}
+        <h1 class="components-box9-data-title" data-aos="fade-up" data-aos-duration="3000">Attraiamo le tue idee transformandole nel progetto che hai sempre sognato</h1>
+        <p class="components-box9-data-text" data-aos="fade-up" data-aos-duration="3000"> Slise nasce dalla volontà di offrire servizi di comunicazione a 360 gradi. Crediamo un sacco nel superpotere della comunicazione e quanto sia indispensabile dare ai vostri Brand, il supporto e l'importanza che meritano.</p>
         <div class="components-box9-data-cta" data-aos="fade-up" data-aos-duration="3000">
-            <a href=""><button class="btn-cta">{{ servicesHead.cta }}</button></a>
+            <a href=""><button class="btn-cta">Richiedi preventivo</button></a>
         </div>
     </div>
 </section>
-{% endif %}
 
 {% if services is defined and services is not empty %}
 <section class="components-box10">
@@ -74,10 +68,11 @@
         <h2 class="title c-lightBlue" data-aos="fade-up" data-aos-duration="3000"><span class="c-blue">Attrai</span> nuovi clienti: prenota una consulenza gratuita.</h2>
     </div>
     <div class="components-box6-module" data-aos="zoom-out-up" data-aos-duration="3000">
-        <form action="">
+        <p class="message consulenza"></p>
+        <form action="" name="consulenza" method="post" onsubmit="return false;">
             <div>
-                <input type="email" name="email" placeholder="Inserisci la tua migliore email" required>
-                <input type="submit" value="Invia">
+                <input type="email" name="email" placeholder="Inserisci la tua email" required>
+                <button class="btn-consulenza">Invia</button>
             </div>
         </form>
     </div>
