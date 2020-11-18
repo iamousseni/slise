@@ -143,7 +143,7 @@ if(document.querySelector('#btn-send-contact')){
             email: form.email.value,
             comment: form.comment.value
         };
-        this.innerHTML = '<img src="/icons/unnamed.gif" alt="load slise" style="height:30px;object-fit:contain;">';
+        this.innerHTML = '<img src="/images/unnamed.gif" alt="load slise" style="height:30px;object-fit:contain;">';
 
         ajax('/contatti/send', 'POST', data)
         .then( data => {
@@ -170,7 +170,7 @@ if(document.querySelector('.btn-consulenza')){
             email: form.email.value,
         };
 
-        this.innerHTML = '<img src="/icons/unnamed.gif" alt="load slise" style="height:30px;object-fit:contain;">';
+        this.innerHTML = '<img src="/images/unnamed.gif" alt="load slise" style="height:30px;object-fit:contain;">';
         ajax('/consulenza/send', 'POST', data)
         .then( data => {
         let message = document.querySelector('.message.consulenza');

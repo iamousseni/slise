@@ -410,7 +410,7 @@ button { all: unset; }
     align-items: center;
     padding: 1% 2%;
     width: 90%;
-    /*perspective: 1000px;*/
+    overflow: visible;
 }
 
 .components-box2 > div{
@@ -418,7 +418,6 @@ button { all: unset; }
 }
 
 .components-box2-image{
-   /* transform-style: preserve-3d; */
     padding: 0%;
 }
 
