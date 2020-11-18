@@ -167,14 +167,17 @@ button { all: unset; }
     right:0;
     bottom: 0%;
     z-index: 1;
+    height: 100%;
 }
 
 .waves-footer {
     position: absolute;
     left:0;
     right:0;
-    top:-99%;
     z-index: 1;
+
+    height: 30%;
+    top: -30%;
 }
 
 @keyframes animateWave {
@@ -273,7 +276,7 @@ button { all: unset; }
 .components-menu-scroll{
     width: 10%;
     position: absolute;
-    bottom: 27%;
+    bottom: 10%;
     right: 1%;
     cursor: pointer;
 }
@@ -283,7 +286,7 @@ button { all: unset; }
     text-align: center;
     color: #fff;
     transform: rotate(270deg);
-    margin-bottom: 40%;
+    margin-bottom: 30%;
 }
 
 .scroll-image{
@@ -1056,6 +1059,7 @@ button { all: unset; }
 .components-box10-services > a{
     text-decoration: none;
     color: inherit;
+    cursor: default;
 }
 
 .components-box10-services > a{
@@ -1608,6 +1612,11 @@ footer .social-box > div > i{
         top: -70%;
     }
 
+    .services-slise{
+        display: flex;
+        height: auto;
+    }
+
     .services-slise > img:first-child,
     .services-slise > img:nth-child(2){
         width: 100%;
@@ -1745,6 +1754,11 @@ footer .social-box > div > i{
 @media only screen and (max-width: 375px) {
     .waves-header{
         height: 110%;
+    }
+
+    .services-slise{
+        display: flex;
+        height: auto;
     }
 
     .services-slise > h1 {
