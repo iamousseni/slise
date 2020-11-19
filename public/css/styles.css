@@ -1498,7 +1498,7 @@ footer .social-box > div > i{
 
     .nav-scroll-up{
         position: sticky;
-        top: 4%;
+        top: 0%;
         padding: 4% 2%;
     }
 
@@ -1653,9 +1653,9 @@ footer .social-box > div > i{
 @media only screen and (max-width: 414px) {
     .nav-scroll-up{
         position: sticky;
-        top: 4%;
+        top: 0%;
         padding: 4% 2%;
-    }
+    } 
 
     .nav-scroll-up > div:first-child{
         width: 40%;
@@ -1831,7 +1831,7 @@ footer .social-box > div > i{
 
     .services-slise{
         display: flex;
-        height: auto;
+        height: 75px;
     }
 
     .services-slise > h1 {
